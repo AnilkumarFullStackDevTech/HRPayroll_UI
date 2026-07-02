@@ -1,1 +1,93 @@
-<p>employee-form works!</p>
+<div class="card">
+
+<div class="card-header">
+
+<h4>
+
+{{isEdit ? 'Edit Employee' : 'Add Employee'}}
+
+</h4>
+
+</div>
+
+<div class="card-body">
+
+<form [formGroup]="form">
+
+<div class="mb-3">
+
+<label>Name</label>
+
+<input
+class="form-control"
+formControlName="employeeName">
+
+</div>
+
+<div class="mb-3">
+
+<label>Email</label>
+
+<input
+class="form-control"
+formControlName="email">
+
+</div>
+
+<div class="mb-3">
+
+<label>Salary</label>
+
+<input
+type="number"
+class="form-control"
+formControlName="salary">
+
+</div>
+
+<div class="mb-3">
+
+<label>Join Date</label>
+
+<input
+type="date"
+class="form-control"
+formControlName="joinDate">
+
+</div>
+
+<div class="mb-3">
+
+<label>Department</label>
+
+<select
+class="form-select"
+formControlName="departmentId">
+
+<option value="">Select</option>
+
+<option
+*ngFor="let d of departments"
+[value]="d.departmentId">
+
+{{d.departmentName}}
+
+</option>
+
+</select>
+
+</div>
+
+<button
+class="btn btn-primary"
+(click)="save()">
+
+{{isEdit ? 'Update' : 'Save'}}
+
+</button>
+
+</form>
+
+</div>
+
+</div>

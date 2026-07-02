@@ -1,3 +1,14 @@
+<div class="mb-2">
+
+<a
+routerLink="/employee/add"
+class="btn btn-primary">
+
+Add Employee
+
+</a>
+
+</div>
 <div class="card">
 
 <div class="card-header">
@@ -7,6 +18,31 @@
 </div>
 
 <div class="card-body">
+
+<div class="row mb-3">
+
+<div class="col-md-4">
+
+<input
+class="form-control"
+[(ngModel)]="searchText"
+placeholder="Search Employee">
+
+</div>
+
+<div class="col-md-2">
+
+<button
+class="btn btn-primary"
+(click)="search()">
+
+Search
+
+</button>
+
+</div>
+
+</div>    
 
 <table class="table table-bordered">
 
@@ -21,7 +57,7 @@
 <th>Department</th>
 
 <th>Salary</th>
-
+<th>Action</th>
 </tr>
 
 </thead>
@@ -37,6 +73,25 @@
 <td>{{item.departmentName}}</td>
 
 <td>{{item.salary}}</td>
+<td>
+
+<a
+class="btn btn-warning btn-sm me-2"
+[routerLink]="['/employee/edit',item.employeeId]">
+
+Edit
+
+</a>
+
+<button
+class="btn btn-danger btn-sm"
+(click)="delete(item.employeeId)">
+
+Delete
+
+</button>
+
+</td>
 
 </tr>
 
